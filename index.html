@@ -1,471 +1,505 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <title>Vimarsh Sharma | Backend Engineer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
-<style>
-/* =========================================================
+    <style>
+        /* =========================================================
    GLOBAL CYBER THEME VARIABLES
 ========================================================= */
-:root {
-    --bg-main: #020b13;
-    --bg-accent: #041c2c;
-    --neon: #6ef3ff;
-    --neon-pink: #ff00c1;
-    --text-main: #d6f6ff;
-}
+        :root {
+            --bg-main: #020b13;
+            --bg-accent: #041c2c;
+            --neon: #6ef3ff;
+            --neon-pink: #ff00c1;
+            --text-main: #d6f6ff;
+        }
 
-/* =========================================================
+        /* =========================================================
    RESET & BASE
 ========================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    background: radial-gradient(circle at top, var(--bg-accent), var(--bg-main));
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
+        body {
+            background: radial-gradient(circle at top, var(--bg-accent), var(--bg-main));
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-/* =========================================================
+        /* =========================================================
    CYBER GRID BACKGROUND
 ========================================================= */
-.cyber-grid {
-    position: fixed;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(110,243,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(110,243,255,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridMove 45s linear infinite;
-    z-index: -3;
-    pointer-events: none;
-}
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(110, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(110, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 45s linear infinite;
+            z-index: -3;
+            pointer-events: none;
+        }
 
-@keyframes gridMove {
-    from { background-position: 0 0; }
-    to { background-position: 600px 600px; }
-}
+        @keyframes gridMove {
+            from {
+                background-position: 0 0;
+            }
 
-/* =========================================================
+            to {
+                background-position: 600px 600px;
+            }
+        }
+
+        /* =========================================================
    FLOATING NEON PARTICLES
 ========================================================= */
-.particles::before,
-.particles::after {
-    content: '';
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(110,243,255,0.18), transparent 70%);
-    filter: blur(80px);
-    animation: floatGlow 20s ease-in-out infinite;
-    z-index: -2;
-    pointer-events: none;
-}
+        .particles::before,
+        .particles::after {
+            content: '';
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(110, 243, 255, 0.18), transparent 70%);
+            filter: blur(80px);
+            animation: floatGlow 20s ease-in-out infinite;
+            z-index: -2;
+            pointer-events: none;
+        }
 
-.particles::after {
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle, rgba(255,0,193,0.16), transparent 70%);
-    animation-delay: -10s;
-}
+        .particles::after {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(255, 0, 193, 0.16), transparent 70%);
+            animation-delay: -10s;
+        }
 
-@keyframes floatGlow {
-    0% { transform: translate(10vw, 20vh); }
-    50% { transform: translate(70vw, 60vh); }
-    100% { transform: translate(10vw, 20vh); }
-}
+        @keyframes floatGlow {
+            0% {
+                transform: translate(10vw, 20vh);
+            }
 
-/* =========================================================
+            50% {
+                transform: translate(70vw, 60vh);
+            }
+
+            100% {
+                transform: translate(10vw, 20vh);
+            }
+        }
+
+        /* =========================================================
    SCANLINES OVERLAY
 ========================================================= */
-.scanlines {
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.035),
-        rgba(255,255,255,0.035) 1px,
-        transparent 1px,
-        transparent 3px
-    );
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 999;
-}
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.035),
+                    rgba(255, 255, 255, 0.035) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 999;
+        }
 
-/* =========================================================
+        /* =========================================================
    TYPOGRAPHY
 ========================================================= */
-h1, h2, h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--neon);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 14px rgba(110,243,255,0.6);
-}
+        h1,
+        h2,
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 14px rgba(110, 243, 255, 0.6);
+        }
 
-a {
-    color: var(--neon);
-    text-decoration: none;
-}
+        a {
+            color: var(--neon);
+            text-decoration: none;
+        }
 
-a:hover {
-    text-shadow: 0 0 12px var(--neon);
-}
+        a:hover {
+            text-shadow: 0 0 12px var(--neon);
+        }
 
-/* =========================================================
+        /* =========================================================
    NAVBAR + GLITCH
 ========================================================= */
-nav {
-    padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(4, 28, 44, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(110,243,255,0.25);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(4, 28, 44, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(110, 243, 255, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.glitch-wrapper {
-    font-family: 'Orbitron';
-    font-weight: bold;
-    letter-spacing: 3px;
-    position: relative;
-}
+        .glitch-wrapper {
+            font-family: 'Orbitron';
+            font-weight: bold;
+            letter-spacing: 3px;
+            position: relative;
+        }
 
-.glitch-wrapper::before,
-.glitch-wrapper::after {
-    content: "HELLO WORLD";
-    position: absolute;
-    inset: 0;
-    opacity: 0.7;
-}
+        .glitch-wrapper::before,
+        .glitch-wrapper::after {
+            content: "HELLO WORLD";
+            position: absolute;
+            inset: 0;
+            opacity: 0.7;
+        }
 
-.glitch-wrapper::before {
-    color: var(--neon-pink);
-    transform: translate(-2px, 2px);
-}
+        .glitch-wrapper::before {
+            color: var(--neon-pink);
+            transform: translate(-2px, 2px);
+        }
 
-.glitch-wrapper::after {
-    color: #00fff9;
-    transform: translate(2px, -2px);
-}
+        .glitch-wrapper::after {
+            color: #00fff9;
+            transform: translate(2px, -2px);
+        }
 
-.nav-links a {
-    margin-left: 22px;
-    font-family: 'Orbitron';
-    font-size: 0.8rem;
-}
+        .nav-links a {
+            margin-left: 22px;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+        }
 
-/* =========================================================
+        /* =========================================================
    HERO SECTION
 ========================================================= */
-.hero {
-    padding: 8rem 2rem;
-    text-align: center;
-}
+        .hero {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
 
-.typed-out {
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    width: 0;
-    animation: typing 3.5s steps(30, end) forwards;
-    font-size: 2.6rem;
-    font-family: 'Orbitron';
-}
+        .typed-out {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            width: 0;
+            animation: typing 3.5s steps(30, end) forwards;
+            font-size: 2.6rem;
+            font-family: 'Orbitron';
+        }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
+        @keyframes typing {
+            from {
+                width: 0;
+            }
 
-.blink {
-    animation: blink 1s infinite;
-}
+            to {
+                width: 100%;
+            }
+        }
 
-@keyframes blink {
-    50% { opacity: 0; }
-}
+        .blink {
+            animation: blink 1s infinite;
+        }
 
-/* =========================================================
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
    CARD SYSTEM (PLAYER CARDS)
 ========================================================= */
-.card-section {
-    padding: 4rem 2rem;
-    text-align: center;
-}
+        .card-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
-.card-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2.8rem;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-}
+        .card-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.8rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
 
-.player-card {
-    width: 300px;
-    height: 420px;
-    perspective: 1200px;
-    cursor: pointer;
-}
+        .player-card {
+            width: 300px;
+            height: 420px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
 
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(.25,.8,.25,1);
-}
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.9s cubic-bezier(.25, .8, .25, 1);
+        }
 
-.player-card:hover .card-inner {
-    transform: rotateY(180deg);
-}
+        .player-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
 
-.card-face {
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    backface-visibility: hidden;
-    padding: 2rem;
-    box-shadow: 0 0 35px rgba(110,243,255,0.18);
-    border: 1px solid rgba(110,243,255,0.3);
-}
+        .card-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            padding: 2rem;
+            box-shadow: 0 0 35px rgba(110, 243, 255, 0.18);
+            border: 1px solid rgba(110, 243, 255, 0.3);
+        }
 
-.card-front {
-    background: linear-gradient(145deg, #06283d, #02141f);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .card-front {
+            background: linear-gradient(145deg, #06283d, #02141f);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-.card-back {
-    background: linear-gradient(145deg, #120a2a, #060014);
-    transform: rotateY(180deg);
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .card-back {
+            background: linear-gradient(145deg, #120a2a, #060014);
+            transform: rotateY(180deg);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.tech-tags {
-    margin-top: 1rem;
-    font-family: 'Orbitron';
-    font-size: 0.75rem;
-    color: var(--neon);
-}
+        .tech-tags {
+            margin-top: 1rem;
+            font-family: 'Orbitron';
+            font-size: 0.75rem;
+            color: var(--neon);
+        }
 
-/* =========================================================
+        /* =========================================================
    UPDATES & FOOTER
 ========================================================= */
-.updates {
-    max-width: 900px;
-    margin: 4rem auto;
-    padding: 2.5rem;
-    border-radius: 18px;
-    background: rgba(110,243,255,0.04);
-    border: 1px solid rgba(110,243,255,0.25);
-    text-align: center;
-}
+        .updates {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2.5rem;
+            border-radius: 18px;
+            background: rgba(110, 243, 255, 0.04);
+            border: 1px solid rgba(110, 243, 255, 0.25);
+            text-align: center;
+        }
 
-.divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--neon), transparent);
-    margin: 4rem 0;
-}
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--neon), transparent);
+            margin: 4rem 0;
+        }
 
-footer {
-    text-align: center;
-    padding: 4rem 2rem;
-    border-top: 1px solid rgba(110,243,255,0.2);
-}
-/* =========================================================
-   MOBILE RESPONSIVENESS
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(110, 243, 255, 0.2);
+        }
+
+        /* =========================================================
+   MOBILE RESPONSIVE (FRONT-ONLY CARDS)
 ========================================================= */
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-    /* NAVBAR */
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
+            /* ================= NAVBAR ================= */
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-    }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
 
-    .nav-links a {
-        margin-left: 0;
-        font-size: 0.75rem;
-    }
+            .nav-links a {
+                margin-left: 0;
+                font-size: 0.75rem;
+            }
 
-    /* HERO */
-    .hero {
-        padding: 5rem 1.5rem;
-    }
+            /* ================= HERO ================= */
+            .hero {
+                padding: 5rem 1.5rem;
+            }
 
-    .typed-out {
-        font-size: 1.6rem;
-        white-space: normal;
-        width: 100%;
-        animation: none;
-        text-align: center;
-    }
+            .typed-out {
+                font-size: 1.6rem;
+                white-space: normal;
+                width: 100%;
+                animation: none;
+                line-height: 1.4;
+                text-align: center;
+            }
 
-    /* CARDS */
-    .player-card {
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-        perspective: none;
-    }
+            /* ================= CARDS ================= */
+            .player-card {
+                width: 100%;
+                max-width: 340px;
+                height: auto;
+                perspective: none;
+            }
 
-    .card-inner {
-        transform: none !important;
-    }
+            /* Disable 3D / flip system */
+            .card-inner {
+                transform: none !important;
+                position: static;
+            }
 
-    .card-face {
-        position: relative;
-        backface-visibility: visible;
-        margin-bottom: 1.5rem;
-    }
+            /* Front face becomes the card */
+            .card-front {
+                position: relative;
+                display: flex;
+                min-height: 220px;
+            }
 
-    .card-back {
-        transform: none;
-    }
+            /* Remove back face completely */
+            .card-back {
+                display: none !important;
+            }
 
-    /* GRID GAP */
-    .card-grid {
-        gap: 1.5rem;
-    }
+            /* Prevent hover artifacts */
+            .player-card:hover .card-inner {
+                transform: none;
+            }
 
-    /* PERFORMANCE */
-    .scanlines {
-        display: none;
-    }
-}
+            /* Grid spacing */
+            .card-grid {
+                gap: 1.5rem;
+            }
 
-</style>
+            /* ================= PERFORMANCE ================= */
+            .scanlines {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND LAYERS -->
-<div class="cyber-grid"></div>
-<div class="particles"></div>
-<div class="scanlines"></div>
+    <!-- BACKGROUND LAYERS -->
+    <div class="cyber-grid"></div>
+    <div class="particles"></div>
+    <div class="scanlines"></div>
 
-<nav>
-    <div class="glitch-wrapper">HELLO WORLD</div>
-    <div class="nav-links">
-        <a href="index.html">HOME</a>
-        <a href="Intro.html">ABOUT</a>
-        <a href="BackendProjects.html">BACKEND</a>
-        <a href="GameProjects.html">GAMES</a>
-    </div>
-</nav>
+    <nav>
+        <div class="glitch-wrapper">HELLO WORLD</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="Intro.html">ABOUT</a>
+            <a href="BackendProjects.html">BACKEND</a>
+            <a href="GameProjects.html">GAMES</a>
+        </div>
+    </nav>
 
-<section class="hero">
-    <div class="typed-out">Hi, this is Vimarsh Sharma<span class="blink">.</span></div>
-    <p style="margin-top:1.5rem; font-family:Orbitron; color:#9efaff;">
-        BACKEND ENGINEER • DISTRIBUTED SYSTEMS • GAME & SIMULATION DEV
-    </p>
-</section>
+    <section class="hero">
+        <div class="typed-out">Hi, this is Vimarsh Sharma<span class="blink">.</span></div>
+        <p style="margin-top:1.5rem; font-family:Orbitron; color:#9efaff;">
+            BACKEND ENGINEER • DISTRIBUTED SYSTEMS • GAME & SIMULATION DEV
+        </p>
+    </section>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<section class="card-section">
-    <h2>PORTFOLIO MODULES</h2>
-    <p style="color:#7adfff;">Hover to inspect • Click to navigate</p>
+    <section class="card-section">
+        <h2>PORTFOLIO MODULES</h2>
+        <p style="color:#7adfff;">Hover to inspect • Click to navigate</p>
 
-    <div class="card-grid">
+        <div class="card-grid">
 
-        <div class="player-card" onclick="location.href='Intro.html'">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h3>ABOUT ME</h3>
-                    <p>Engineering Journey</p>
-                </div>
-                <div class="card-face card-back">
-                    <strong>Backend-First Engineer</strong>
-                    <p>Focused on scalable backend systems while leveraging simulation and real-time experience.</p>
-                    <div class="tech-tags">JAVA • SYSTEM DESIGN • CONCURRENCY</div>
+            <div class="player-card" onclick="location.href='Intro.html'">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <h3>ABOUT ME</h3>
+                        <p>Engineering Journey</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <strong>Backend-First Engineer</strong>
+                        <p>Focused on scalable backend systems while leveraging simulation and real-time experience.</p>
+                        <div class="tech-tags">JAVA • SYSTEM DESIGN • CONCURRENCY</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="player-card" onclick="location.href='BackendProjects.html'">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h3>BACKEND PROJECTS</h3>
-                    <p>Production-Grade Systems</p>
-                </div>
-                <div class="card-face card-back">
-                    <strong>Distributed Backends</strong>
-                    <p>Microservices, auth gateways, async processing, messaging, caching.</p>
-                    <div class="tech-tags">SPRING • JWT • KAFKA • REDIS</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="player-card" onclick="location.href='GameProjects.html'">
-            <div class="card-inner">
-                <div class="card-face card-front">
-                    <h3>GAME PROJECTS</h3>
-                    <p>Interactive & Real-Time</p>
-                </div>
-                <div class="card-face card-back">
-                    <strong>Games & Simulations</strong>
-                    <p>VR training simulators, physics systems, gameplay architecture.</p>
-                    <div class="tech-tags">UNITY • C# • VR • SIMULATION</div>
+            <div class="player-card" onclick="location.href='BackendProjects.html'">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <h3>BACKEND PROJECTS</h3>
+                        <p>Production-Grade Systems</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <strong>Distributed Backends</strong>
+                        <p>Microservices, auth gateways, async processing, messaging, caching.</p>
+                        <div class="tech-tags">SPRING • JWT • KAFKA • REDIS</div>
+                    </div>
                 </div>
             </div>
+
+            <div class="player-card" onclick="location.href='GameProjects.html'">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <h3>GAME PROJECTS</h3>
+                        <p>Interactive & Real-Time</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <strong>Games & Simulations</strong>
+                        <p>VR training simulators, physics systems, gameplay architecture.</p>
+                        <div class="tech-tags">UNITY • C# • VR • SIMULATION</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-    </div>
-</section>
+    <section class="updates">
+        <h3>Current Focus</h3>
+        <p>
+            Designing <strong>robust, scalable backend systems</strong> with an emphasis on
+            performance, reliability, and real-world production constraints.
+        </p>
+        <div style="margin-top:1rem; font-family:Orbitron; font-size:0.8rem; color:var(--neon);">
+            TARGETING BACKEND ENGINEER ROLES
+        </div>
+    </section>
 
-<section class="updates">
-    <h3>Current Focus</h3>
-    <p>
-        Designing <strong>robust, scalable backend systems</strong> with an emphasis on
-        performance, reliability, and real-world production constraints.
-    </p>
-    <div style="margin-top:1rem; font-family:Orbitron; font-size:0.8rem; color:var(--neon);">
-        TARGETING BACKEND ENGINEER ROLES
-    </div>
-</section>
+    <div class="divider"></div>
 
-<div class="divider"></div>
+    <footer>
+        <h3>Connect</h3>
+        <a href="mailto:vimarshsharmabsr2000@gmail.com">Email</a> |
+        <a href="https://github.com/Vimu-Sama">GitHub</a> |
+        <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a">LinkedIn</a>
 
-<footer>
-    <h3>Connect</h3>
-    <a href="mailto:vimarshsharmabsr2000@gmail.com">Email</a> |
-    <a href="https://github.com/Vimu-Sama">GitHub</a> |
-    <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a">LinkedIn</a>
-
-    <p style="margin-top:2rem; font-size:0.7rem; color:#7adfff;">
-        DESIGNED & ENGINEERED BY VIMARSH SHARMA © 2025
-    </p>
-</footer>
+        <p style="margin-top:2rem; font-size:0.7rem; color:#7adfff;">
+            DESIGNED & ENGINEERED BY VIMARSH SHARMA © 2025
+        </p>
+    </footer>
 
 </body>
+
 </html>
