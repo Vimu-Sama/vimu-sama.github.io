@@ -18,6 +18,17 @@
             overflow-x: hidden;
         }
 
+        /* Entrance Animations */
+        @keyframes pageReveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fade-slide {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1, h2, h3 {
             font-family: 'Orbitron', sans-serif;
             color: #6ef3ff;
@@ -39,6 +50,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+            animation: pageReveal 0.5s ease-out forwards;
         }
 
         .nav-links a {
@@ -57,6 +69,7 @@
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid rgba(110, 243, 255, 0.1);
+            animation: pageReveal 0.8s ease-out forwards;
         }
 
         .typed-out {
@@ -68,6 +81,7 @@
             width: 0;
             color: #6ef3ff;
             text-shadow: 0 0 20px rgba(110, 243, 255, 0.5);
+            font-family: 'Orbitron';
         }
 
         @keyframes typing { from { width: 0 } to { width: 100% } }
@@ -89,7 +103,16 @@
             padding: 2rem;
             border: 1px solid rgba(110, 243, 255, 0.1);
             transition: 0.4s;
+            opacity: 0;
+            animation: fade-slide 0.8s ease-out forwards;
         }
+
+        /* Staggered load for projects */
+        .project-row:nth-child(1) { animation-delay: 0.4s; }
+        .project-row:nth-child(2) { animation-delay: 0.6s; }
+        .project-row:nth-child(3) { animation-delay: 0.8s; }
+        .project-row:nth-child(4) { animation-delay: 1.0s; }
+        .project-row:nth-child(5) { animation-delay: 1.2s; }
 
         .project-row:hover {
             border: 1px solid rgba(110, 243, 255, 0.4);
@@ -104,6 +127,7 @@
             overflow: hidden;
             border: 1px solid #6ef3ff;
             box-shadow: 0 0 15px rgba(110, 243, 255, 0.2);
+            background: #000;
         }
 
         .project-image img { width: 100%; display: block; filter: grayscale(20%) contrast(1.1); }
@@ -168,11 +192,11 @@
     <nav>
         <div style="font-family: 'Orbitron'; font-weight: bold; color: #6ef3ff;">VIMARSH SHARMA</div>
         <div class="nav-links">
-			<a href="index.html">HOME</a>
-			<a href="Intro.html">ABOUT</a>
-			<a href="BackendProjects.html">BACKEND</a>
-			<a href="GameProjects.html">GAMES</a>
-    	</div>
+            <a href="index.html">HOME</a>
+            <a href="Intro.html">ABOUT</a>
+            <a href="BackendProjects.html">BACKEND</a>
+            <a href="GameProjects.html">GAMES</a>
+        </div>
     </nav>
 
     <section class="banner">
@@ -183,6 +207,27 @@
     </section>
 
     <div class="spotlight-container">
+
+        <section class="project-row">
+            <div class="project-image">
+                <a href="https://drive.google.com/drive/folders/1rxT1yvU5zF47WiWpqPIX15lMtwIcp1gm">
+                    <img src="images/inventory-manager-gameplay.jpg" alt="Inventory System Manager">
+                </a>
+            </div>
+            <div class="project-content">
+                <h3>Inventory System Manager</h3>
+                <p>A robust system designed to manage large-scale item data. Features dynamic UI updates, category filtering, and item persistence using high-level architecture.</p>
+                <div class="tech-tags">
+                    <span class="tag">UI ARCHITECTURE</span>
+                    <span class="tag">DATA PERSISTENCE</span>
+                    <span class="tag">EVENT SYSTEMS</span>
+                </div>
+                <div class="actions">
+                    <a href="https://drive.google.com/drive/folders/1rxT1yvU5zF47WiWpqPIX15lMtwIcp1gm" class="btn">DOWNLOAD BUILD</a>
+                    <a href="https://github.com/Vimu-Sama/Vimarsh_Sharma_Inventory-System" class="btn">VIEW SOURCE</a>
+                </div>
+            </div>
+        </section>
 
         <section class="project-row">
             <div class="project-image">
@@ -238,7 +283,6 @@
                 <div class="tech-tags">
                     <span class="tag">3D MATHS</span>
                     <span class="tag">LINE RENDERER</span>
-                    <span class="tag">NAMESPACES</span>
                     <span class="tag">OBJECT POOLING</span>
                 </div>
                 <div class="actions">
@@ -278,8 +322,8 @@
             <p>I hope you liked the platter I presented! Many more prototypes are currently being compiled.</p>
             <a href="index.html" class="btn">RETURN TO HOME</a>
             <div style="margin-top: 3rem;">
-                <a href="https://github.com/Vimu-Sama" style="color: #6ef3ff;">GitHub</a> | 
-                <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a" style="color: #6ef3ff;">LinkedIn</a>
+                <a href="https://github.com/Vimu-Sama" style="color: #6ef3ff; text-decoration: none;">GITHUB</a> | 
+                <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a" style="color: #6ef3ff; text-decoration: none;">LINKEDIN</a>
             </div>
         </div>
     </footer>

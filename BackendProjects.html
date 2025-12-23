@@ -6,7 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <style>
         /* ================= GLOBAL THEME ================= */
@@ -18,14 +20,44 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        /* Entrance Animations */
+        @keyframes pageReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-slide {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
             font-family: 'Orbitron', sans-serif;
             color: #6ef3ff;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        p { line-height: 1.6; color: #b0d4de; }
+        p {
+            line-height: 1.6;
+            color: #b0d4de;
+        }
 
         /* ================= NAVIGATION ================= */
         nav {
@@ -39,6 +71,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+            animation: pageReveal 0.5s ease-out forwards;
         }
 
         .nav-links a {
@@ -57,6 +90,7 @@
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid rgba(110, 243, 255, 0.1);
+            animation: pageReveal 0.8s ease-out forwards;
         }
 
         .typed-out {
@@ -68,9 +102,18 @@
             width: 0;
             color: #6ef3ff;
             text-shadow: 0 0 20px rgba(110, 243, 255, 0.5);
+            font-family: 'Orbitron';
         }
 
-        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
 
         /* ================= PROJECT SPOTLIGHTS ================= */
         .spotlight-container {
@@ -81,7 +124,7 @@
 
         .project-row {
             display: flex;
-            align-items: stretch; /* FIX: Makes image and content equal height */
+            align-items: stretch;
             gap: 3rem;
             margin-bottom: 6rem;
             background: rgba(110, 243, 255, 0.03);
@@ -89,6 +132,17 @@
             padding: 2rem;
             border: 1px solid rgba(110, 243, 255, 0.1);
             transition: 0.4s;
+            opacity: 0;
+            animation: fade-slide 0.8s ease-out forwards;
+        }
+
+        /* Staggered load for projects */
+        .project-row:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .project-row:nth-child(2) {
+            animation-delay: 0.8s;
         }
 
         .project-row:hover {
@@ -96,7 +150,9 @@
             box-shadow: 0 0 30px rgba(110, 243, 255, 0.05);
         }
 
-        .project-row:nth-child(even) { flex-direction: row-reverse; }
+        .project-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
 
         .project-image {
             flex: 1;
@@ -105,20 +161,25 @@
             border: 1px solid #6ef3ff;
             box-shadow: 0 0 15px rgba(110, 243, 255, 0.2);
             background: #000;
-            min-height: 100%; /* Ensures container fills the row height */
+            min-height: 100%;
         }
 
-        .project-image img { 
-            width: 100%; 
-            height: 100%; /* FIX: Forces image to fill the stretched container */
-            object-fit: cover; /* FIX: Prevents distortion while filling height */
-            display: block; 
-            filter: brightness(0.8) contrast(1.2); 
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.8) contrast(1.2);
         }
 
-        .project-content { flex: 1.2; display: flex; flex-direction: column; justify-content: center; }
+        .project-content {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        /* ================= FEATURES UI FIX ================= */
+        /* ================= FEATURES UI ================= */
         .features-container {
             margin: 1.5rem 0;
             padding: 1rem;
@@ -134,10 +195,12 @@
             margin-bottom: 12px;
         }
 
-        .feature-item:last-child { margin-bottom: 0; }
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
 
         .feature-icon {
-            flex-shrink: 0; /* FIX: Prevents icon from shrinking or jumping lines */
+            flex-shrink: 0;
             font-size: 1rem;
         }
 
@@ -204,139 +267,175 @@
             margin: 4rem 0;
         }
 
-        footer { text-align: center; padding-bottom: 4rem; }
+        footer {
+            text-align: center;
+            padding-bottom: 4rem;
+        }
 
         @media (max-width: 900px) {
-            .project-row { flex-direction: column !important; text-align: center; }
-            .project-image { min-height: 250px; }
-            .typed-out { font-size: 1.8rem; }
-            .feature-item { text-align: left; }
+            .project-row {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .project-image {
+                min-height: 250px;
+            }
+
+            .typed-out {
+                font-size: 1.8rem;
+            }
+
+            .feature-item {
+                text-align: left;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<nav>
-    <div style="font-family: 'Orbitron'; font-weight: bold; color: #6ef3ff;">VIMARSH SHARMA</div>
-    <div class="nav-links">
-        <a href="index.html">HOME</a>
-        <a href="Intro.html">ABOUT</a>
-        <a href="BackendProjects.html">BACKEND</a>
-        <a href="GameProjects.html">GAMES</a>
-    </div>
-</nav>
-
-<section class="banner">
-    <div class="typed-out">BACKEND PROJECTS</div>
-    <p style="font-family: 'Orbitron'; font-size: 0.9rem; color: #6ef3ff; margin-top: 1rem;">
-        Synchronizing distributed systems & data persistence layers...
-    </p>
-</section>
-
-<div class="spotlight-container">
-
-    <section class="project-row">
-        <div class="project-image">
-            <img src="images/patient-management-system.jpg" alt="Patient Management System">
+    <nav>
+        <div style="font-family: 'Orbitron'; font-weight: bold; color: #6ef3ff;">VIMARSH SHARMA</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="Intro.html">ABOUT</a>
+            <a href="BackendProjects.html">BACKEND</a>
+            <a href="GameProjects.html">GAMES</a>
         </div>
-        <div class="project-content">
-            <h3>Patient Management System</h3>
-            <p>
-                A production-style backend system enabling patients to manage OPD bookings, lab tests, and medical equipment procurement. It centralizes patient needs, streamlining tracking and expenditures.
-            </p>
+    </nav>
 
-            <div class="features-container">
-                <div class="feature-item">
-                    <span class="feature-icon">⚡</span>
-                    <div class="feature-text-group">
-                        <strong>Secured Routes</strong>
-                        <p>Stateless JWT Authentication protocols</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🛡️</span>
-                    <div class="feature-text-group">
-                        <strong>API Gateway</strong>
-                        <p>Centralized entry point for service routing</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🏗️</span>
-                    <div class="feature-text-group">
-                        <strong>Clean Architecture</strong>
-                        <p>Strict Controller-Service-Repository pattern</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tech-tags">
-                <span class="tag">SPRING BOOT 3</span>
-                <span class="tag">JWT AUTH</span>
-                <span class="tag">POSTGRESQL</span>
-                <span class="tag">REST API</span>
-                <span class="tag">gRPC</span>
-                <span class="tag">KAFKA</span>
-            </div>
-
-            <div class="actions">
-                <a href="https://github.com/Vimu-Sama/Patient-Management-System" class="btn">ACCESS REPO</a>
-            </div>
-        </div>
+    <section class="banner">
+        <div class="typed-out">BACKEND PROJECTS</div>
+        <p style="font-family: 'Orbitron'; font-size: 0.9rem; color: #6ef3ff; margin-top: 1rem;">
+            Synchronizing distributed systems & data persistence layers...
+        </p>
     </section>
 
-    <section class="project-row">
-        <div class="project-image">
-            <img src="images/backend-placeholder.jpg" alt="Event Driven System">
-        </div>
-        <div class="project-content">
-            <h3>Event-Driven Order Pipeline</h3>
-            <p>Decoupled microservices architecture using message brokers for asynchronous high-volume order processing.</p>
-            
-            <div class="features-container">
-                <div class="feature-item">
-                    <span class="feature-icon">📡</span>
-                    <div class="feature-text-group">
-                        <strong>Asynchronous Processing</strong>
-                        <p>Non-blocking order fulfillment via Kafka</p>
+    <div class="spotlight-container">
+
+        <section class="project-row">
+            <div class="project-image">
+                <img src="images/patient-management-system.jpg" alt="Patient Management System">
+            </div>
+            <div class="project-content">
+                <h3>Patient Management System</h3>
+                <p>
+                    A production-style backend system enabling patients to manage OPD bookings, lab tests, and medical
+                    equipment procurement. It centralizes patient needs, streamlining tracking and expenditures.
+                </p>
+
+                <div class="features-container">
+                    <div class="feature-item">
+
+                        <span class="feature-icon">⚡</span>
+
+                        <div class="feature-text-group">
+
+                            <strong>Secured Routes</strong>
+
+                            <p>Stateless JWT Authentication protocols</p>
+
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⛓️</span>
+                        <div class="feature-text-group">
+                            <strong>Distributed Messaging</strong>
+                            <p>Asynchronous event-driven logic using Apache Kafka</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div class="feature-text-group">
+                            <strong>Secured Routes</strong>
+                            <p>Stateless JWT Authentication protocols</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🛡️</span>
+                        <div class="feature-text-group">
+                            <strong>API Gateway</strong>
+                            <p>Centralized entry point for service routing & security</p>
+                        </div>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📦</span>
-                    <div class="feature-text-group">
-                        <strong>Service Orchestration</strong>
-                        <p>Fault-tolerant microservices design</p>
-                    </div>
+
+                <div class="tech-tags">
+                    <span class="tag">SPRING BOOT 3</span>
+                    <span class="tag">KAFKA</span>
+                    <span class="tag">JWT AUTH</span>
+                    <span class="tag">POSTGRESQL</span>
+                    <span class="tag">REST API</span>
+                    <span class="tag">gRPC</span>
+                </div>
+
+                <div class="actions">
+                    <a href="https://github.com/Vimu-Sama/Patient-Management-System" class="btn">ACCESS REPO</a>
                 </div>
             </div>
+        </section>
 
-            <div class="tech-tags">
-                <span class="tag">APACHE KAFKA</span>
-                <span class="tag">MICROSERVICES</span>
-                <span class="tag">DOCKER</span>
-                <span class="tag">JAVA</span>
+        <section class="project-row">
+            <div class="project-image">
+                <img src="images/ecommerce-backend.jpg" alt="ECommerce Backend">
             </div>
-            <div class="actions">
-                <a href="#" class="btn">VIEW ARCHITECTURE</a>
+            <div class="project-content">
+                <h3>ECommerce Backend Demo</h3>
+                <p>
+                    Clean layered Java backend demonstrating a scalable product service with CR(U)D
+                    operations, database persistence, and service abstraction for future extensibility.
+                </p>
+
+                <div class="features-container">
+                    <div class="feature-item">
+                        <span class="feature-icon">🗂️</span>
+                        <div class="feature-text-group">
+                            <strong>Modular Backend Layers</strong>
+                            <p>Controller → Service → ORM (JPA + Hibernate)</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💾</span>
+                        <div class="feature-text-group">
+                            <strong>Persistent Data Store</strong>
+                            <p>PostgreSQL integration via Spring JPA repositories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-tags">
+                    <span class="tag">SPRING BOOT</span>
+                    <span class="tag">JPA / HIBERNATE</span>
+                    <span class="tag">POSTGRESQL</span>
+                    <span class="tag">REST API</span>
+                    <span class="tag">JAVA</span>
+                </div>
+
+                <div class="actions">
+                    <a href="https://github.com/Vimu-Sama/eCommerceDemo" class="btn" target="_blank">VIEW SOURCE</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</div>
-
-<div class="divider"></div>
-
-<footer>
-    <div class="inner">
-        <h3>End Note</h3>
-        <p>Focused on building <strong>scalable, production-grade infrastructure</strong> that powers the modern web.</p>
-        <a href="index.html" class="btn">SYSTEM EXIT</a>
-        <div style="margin-top: 3rem; font-family: 'Orbitron'; font-size: 0.8rem;">
-            <a href="https://github.com/Vimu-Sama" style="color: #6ef3ff; text-decoration: none;">GITHUB</a> | 
-            <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a" style="color: #6ef3ff; text-decoration: none;">LINKEDIN</a>
-        </div>
     </div>
-</footer>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="inner">
+            <h3>End Note</h3>
+            <p>Focused on building <strong>scalable, production-grade infrastructure</strong> that powers the modern
+                web.</p>
+            <a href="index.html" class="btn">SYSTEM EXIT</a>
+            <div style="margin-top: 3rem; font-family: 'Orbitron'; font-size: 0.8rem;">
+                <a href="https://github.com/Vimu-Sama" style="color: #6ef3ff; text-decoration: none;">GITHUB</a> |
+                <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a"
+                    style="color: #6ef3ff; text-decoration: none;">LINKEDIN</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
+
 </html>

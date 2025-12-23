@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
     <title>Vimarsh Sharma | Backend Engineer</title>
     <meta charset="utf-8" />
@@ -8,247 +7,301 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* ================= GLOBAL THEME ================= */
-        body {
-            background: radial-gradient(circle at top, #041c2c, #020b13);
-            color: #d6f6ff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
+<style>
+/* =========================================================
+   GLOBAL CYBER THEME VARIABLES
+========================================================= */
+:root {
+    --bg-main: #020b13;
+    --bg-accent: #041c2c;
+    --neon: #6ef3ff;
+    --neon-pink: #ff00c1;
+    --text-main: #d6f6ff;
+}
 
-        /* Entrance Animations */
-        @keyframes pageReveal {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+/* =========================================================
+   RESET & BASE
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        @keyframes fade-slide {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+body {
+    background: radial-gradient(circle at top, var(--bg-accent), var(--bg-main));
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
 
-        h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #6ef3ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+/* =========================================================
+   CYBER GRID BACKGROUND
+========================================================= */
+.cyber-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(110,243,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,243,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 45s linear infinite;
+    z-index: -3;
+    pointer-events: none;
+}
 
-        a {
-            color: #6ef3ff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 600px 600px; }
+}
 
-        a:hover {
-            text-shadow: 0 0 10px #6ef3ff;
-        }
+/* =========================================================
+   FLOATING NEON PARTICLES
+========================================================= */
+.particles::before,
+.particles::after {
+    content: '';
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(110,243,255,0.18), transparent 70%);
+    filter: blur(80px);
+    animation: floatGlow 20s ease-in-out infinite;
+    z-index: -2;
+    pointer-events: none;
+}
 
-        /* ================= NAVIGATION & GLITCH ================= */
-        nav {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(4, 28, 44, 0.85);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(110, 243, 255, 0.2);
-            animation: pageReveal 0.6s ease-out forwards;
-        }
+.particles::after {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(255,0,193,0.16), transparent 70%);
+    animation-delay: -10s;
+}
 
-        .glitch-wrapper {
-            font-family: 'Orbitron';
-            font-weight: bold;
-            position: relative;
-            color: #6ef3ff;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-        }
+@keyframes floatGlow {
+    0% { transform: translate(10vw, 20vh); }
+    50% { transform: translate(70vw, 60vh); }
+    100% { transform: translate(10vw, 20vh); }
+}
 
-        .glitch-wrapper::before,
-        .glitch-wrapper::after {
-            content: "HELLO WORLD";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.8;
-        }
+/* =========================================================
+   SCANLINES OVERLAY
+========================================================= */
+.scanlines {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.035) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 999;
+}
 
-        .glitch-wrapper::before {
-            color: #ff00c1;
-            z-index: -1;
-            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        }
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 14px rgba(110,243,255,0.6);
+}
 
-        .glitch-wrapper::after {
-            color: #00fff9;
-            z-index: -2;
-            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-        }
+a {
+    color: var(--neon);
+    text-decoration: none;
+}
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
+a:hover {
+    text-shadow: 0 0 12px var(--neon);
+}
 
-        .nav-links a {
-            margin-left: 20px;
-            font-size: 0.8rem;
-            font-family: 'Orbitron', sans-serif;
-        }
+/* =========================================================
+   NAVBAR + GLITCH
+========================================================= */
+nav {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(4, 28, 44, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(110,243,255,0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        /* ================= HERO SECTION ================= */
-        .hero {
-            padding: 8rem 2rem;
-            text-align: center;
-            animation: pageReveal 0.8s ease-out forwards;
-            animation-delay: 0.2s;
-            opacity: 0;
-        }
+.glitch-wrapper {
+    font-family: 'Orbitron';
+    font-weight: bold;
+    letter-spacing: 3px;
+    position: relative;
+}
 
-        .typed-out {
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(30, end) forwards;
-            animation-delay: 0.5s;
-            font-size: 2.5rem;
-            width: 0;
-            font-family: 'Orbitron', sans-serif;
-        }
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+    content: "HELLO WORLD";
+    position: absolute;
+    inset: 0;
+    opacity: 0.7;
+}
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
+.glitch-wrapper::before {
+    color: var(--neon-pink);
+    transform: translate(-2px, 2px);
+}
 
-        .blink {
-            animation: blink-anim 1s infinite;
-        }
+.glitch-wrapper::after {
+    color: #00fff9;
+    transform: translate(2px, -2px);
+}
 
-        @keyframes blink-anim {
-            0%, 100% { opacity: 1 }
-            50% { opacity: 0 }
-        }
+.nav-links a {
+    margin-left: 22px;
+    font-family: 'Orbitron';
+    font-size: 0.8rem;
+}
 
-        /* ================= CARD SECTION ================= */
-        .card-section {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero {
+    padding: 8rem 2rem;
+    text-align: center;
+}
 
-        .card-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
+.typed-out {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 0;
+    animation: typing 3.5s steps(30, end) forwards;
+    font-size: 2.6rem;
+    font-family: 'Orbitron';
+}
 
-        .player-card {
-            width: 300px;
-            height: 400px;
-            perspective: 1200px;
-            cursor: pointer;
-            opacity: 0;
-            animation: fade-slide 0.8s ease-out forwards;
-        }
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
 
-        .player-card:nth-child(1) { animation-delay: 1.2s; }
-        .player-card:nth-child(2) { animation-delay: 1.5s; }
-        .player-card:nth-child(3) { animation-delay: 1.8s; }
+.blink {
+    animation: blink 1s infinite;
+}
 
-        .card-inner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(.25, .8, .25, 1);
-        }
+@keyframes blink {
+    50% { opacity: 0; }
+}
 
-        .player-card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
+/* =========================================================
+   CARD SYSTEM (PLAYER CARDS)
+========================================================= */
+.card-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
 
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 18px;
-            backface-visibility: hidden;
-            padding: 2rem;
-            box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(110, 243, 255, 0.15);
-            border: 1px solid rgba(110, 243, 255, 0.3);
-        }
+.card-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2.8rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
 
-        .card-front {
-            background: linear-gradient(145deg, #06283d, #02141f);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+.player-card {
+    width: 300px;
+    height: 420px;
+    perspective: 1200px;
+    cursor: pointer;
+}
 
-        .card-back {
-            background: linear-gradient(145deg, #120a2a, #060014);
-            transform: rotateY(180deg);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(.25,.8,.25,1);
+}
 
-        .tech-tags {
-            margin-top: 1rem;
-            font-size: 0.75rem;
-            color: #6ef3ff;
-            font-family: 'Orbitron', sans-serif;
-        }
+.player-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
 
-        /* ================= UPDATES & FOOTER ================= */
-        .updates {
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 2.5rem;
-            border: 1px solid rgba(110, 243, 255, 0.2);
-            background: rgba(110, 243, 255, 0.03);
-            border-radius: 15px;
-            text-align: center;
-            animation: pageReveal 1s ease-out forwards;
-            animation-delay: 2.2s;
-            opacity: 0;
-        }
+.card-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    padding: 2rem;
+    box-shadow: 0 0 35px rgba(110,243,255,0.18);
+    border: 1px solid rgba(110,243,255,0.3);
+}
 
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #6ef3ff, transparent);
-            margin: 4rem 0;
-        }
+.card-front {
+    background: linear-gradient(145deg, #06283d, #02141f);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            border-top: 1px solid rgba(110, 243, 255, 0.1);
-            animation: pageReveal 1s ease-out forwards;
-            animation-delay: 2.5s;
-            opacity: 0;
-        }
-    </style>
+.card-back {
+    background: linear-gradient(145deg, #120a2a, #060014);
+    transform: rotateY(180deg);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tech-tags {
+    margin-top: 1rem;
+    font-family: 'Orbitron';
+    font-size: 0.75rem;
+    color: var(--neon);
+}
+
+/* =========================================================
+   UPDATES & FOOTER
+========================================================= */
+.updates {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    border-radius: 18px;
+    background: rgba(110,243,255,0.04);
+    border: 1px solid rgba(110,243,255,0.25);
+    text-align: center;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--neon), transparent);
+    margin: 4rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(110,243,255,0.2);
+}
+</style>
 </head>
 
 <body>
+
+<!-- BACKGROUND LAYERS -->
+<div class="cyber-grid"></div>
+<div class="particles"></div>
+<div class="scanlines"></div>
 
 <nav>
     <div class="glitch-wrapper">HELLO WORLD</div>
@@ -262,7 +315,7 @@
 
 <section class="hero">
     <div class="typed-out">Hi, this is Vimarsh Sharma<span class="blink">.</span></div>
-    <p style="margin-top:1.5rem; color:#9efaff; font-family: 'Orbitron'; font-size: 1.1rem;">
+    <p style="margin-top:1.5rem; font-family:Orbitron; color:#9efaff;">
         BACKEND ENGINEER • DISTRIBUTED SYSTEMS • GAME & SIMULATION DEV
     </p>
 </section>
@@ -282,9 +335,9 @@
                     <p>Engineering Journey</p>
                 </div>
                 <div class="card-face card-back">
-                    <strong>Multi-domain Engineer</strong>
-                    <p>Backend-focused engineer with experience in simulations, real-time systems, and VR-based projects.</p>
-                    <div class="tech-tags">JAVA • SYSTEM DESIGN • REAL-TIME</div>
+                    <strong>Backend-First Engineer</strong>
+                    <p>Focused on scalable backend systems while leveraging simulation and real-time experience.</p>
+                    <div class="tech-tags">JAVA • SYSTEM DESIGN • CONCURRENCY</div>
                 </div>
             </div>
         </div>
@@ -293,11 +346,11 @@
             <div class="card-inner">
                 <div class="card-face card-front">
                     <h3>BACKEND PROJECTS</h3>
-                    <p>Scalable Systems</p>
+                    <p>Production-Grade Systems</p>
                 </div>
                 <div class="card-face card-back">
-                    <strong>Production-style Backends</strong>
-                    <p>Auth systems, microservices, async messaging, caching, and API design.</p>
+                    <strong>Distributed Backends</strong>
+                    <p>Microservices, auth gateways, async processing, messaging, caching.</p>
                     <div class="tech-tags">SPRING • JWT • KAFKA • REDIS</div>
                 </div>
             </div>
@@ -307,11 +360,11 @@
             <div class="card-inner">
                 <div class="card-face card-front">
                     <h3>GAME PROJECTS</h3>
-                    <p>Interactive Systems</p>
+                    <p>Interactive & Real-Time</p>
                 </div>
                 <div class="card-face card-back">
                     <strong>Games & Simulations</strong>
-                    <p>VR training simulators, gameplay systems, physics-driven interactions, and engine-level logic.</p>
+                    <p>VR training simulators, physics systems, gameplay architecture.</p>
                     <div class="tech-tags">UNITY • C# • VR • SIMULATION</div>
                 </div>
             </div>
@@ -323,10 +376,10 @@
 <section class="updates">
     <h3>Current Focus</h3>
     <p>
-        Designing <strong>robust backend systems</strong> while leveraging game-engine experience
-        to think in terms of performance, concurrency, and real-time constraints.
+        Designing <strong>robust, scalable backend systems</strong> with an emphasis on
+        performance, reliability, and real-world production constraints.
     </p>
-    <div style="margin-top:1rem; font-family:'Orbitron'; font-size:0.8rem; color:#6ef3ff;">
+    <div style="margin-top:1rem; font-family:Orbitron; font-size:0.8rem; color:var(--neon);">
         TARGETING BACKEND ENGINEER ROLES
     </div>
 </section>
