@@ -292,21 +292,144 @@
         }
 
         /* =========================================================
-            MOBILE FIX: HERO HEADING ONLY
-           ========================================================= */
+   COMPLETE MOBILE RESPONSIVENESS
+========================================================= */
         @media (max-width: 768px) {
+
+            /* ---------- GLOBAL ---------- */
+            body {
+                font-size: 14px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                letter-spacing: 1px;
+            }
+
+            p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            /* ---------- NAVBAR ---------- */
+            nav {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+                font-size: 0.7rem;
+            }
+
+            /* ---------- HERO ---------- */
+            .banner {
+                padding: 4rem 1.2rem;
+            }
 
             .typed-out {
                 white-space: normal;
                 /* allow wrapping */
                 width: 100%;
-                /* no clipping */
                 animation: none;
                 /* disable typing on mobile */
-                font-size: 1.8rem;
-                /* readable on phones */
+                font-size: 1.6rem;
                 line-height: 1.3;
                 text-align: center;
+            }
+
+            .banner p {
+                font-size: 0.75rem;
+                margin-top: 0.75rem;
+            }
+
+            /* ---------- PROJECT ROW ---------- */
+            .project-row {
+                flex-direction: column !important;
+                gap: 1.5rem;
+                padding: 1.5rem 1.2rem;
+                margin-bottom: 3.5rem;
+                text-align: left;
+            }
+
+            .project-image {
+                min-height: 220px;
+                width: 100%;
+            }
+
+            .project-image img {
+                object-fit: cover;
+            }
+
+            .project-content {
+                width: 100%;
+            }
+
+            .project-content h3 {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            /* ---------- FEATURES ---------- */
+            .features-container {
+                padding: 0.8rem;
+            }
+
+            .feature-item {
+                gap: 10px;
+            }
+
+            .feature-text-group strong {
+                font-size: 0.7rem;
+            }
+
+            .feature-text-group p {
+                font-size: 0.7rem !important;
+            }
+
+            /* ---------- TECH TAGS ---------- */
+            .tech-tags {
+                justify-content: center;
+                font-size: 0.65rem;
+                gap: 8px;
+            }
+
+            .tag {
+                padding: 3px 8px;
+            }
+
+            /* ---------- BUTTONS ---------- */
+            .actions {
+                display: flex;
+                justify-content: center;
+            }
+
+            .btn {
+                font-size: 0.7rem;
+                padding: 8px 18px;
+                margin-right: 0;
+            }
+
+            /* ---------- FOOTER ---------- */
+            footer {
+                padding: 0 1rem 3rem;
+            }
+
+            footer h3 {
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
             }
         }
     </style>
