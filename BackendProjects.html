@@ -53,7 +53,7 @@
         .banner {
             padding: 6rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(2, 11, 19, 0.9), rgba(2, 11, 19, 0.9)), url('images/viper.gif');
+            background: linear-gradient(rgba(2, 11, 19, 0.9), rgba(2, 11, 19, 0.9)), url('images/backend-circuits.gif');
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid rgba(110, 243, 255, 0.1);
@@ -81,7 +81,7 @@
 
         .project-row {
             display: flex;
-            align-items: center;
+            align-items: stretch; /* FIX: Makes image and content equal height */
             gap: 3rem;
             margin-bottom: 6rem;
             background: rgba(110, 243, 255, 0.03);
@@ -105,12 +105,62 @@
             border: 1px solid #6ef3ff;
             box-shadow: 0 0 15px rgba(110, 243, 255, 0.2);
             background: #000;
+            min-height: 100%; /* Ensures container fills the row height */
         }
 
-        .project-image img { width: 100%; display: block; filter: brightness(0.8) contrast(1.2); }
+        .project-image img { 
+            width: 100%; 
+            height: 100%; /* FIX: Forces image to fill the stretched container */
+            object-fit: cover; /* FIX: Prevents distortion while filling height */
+            display: block; 
+            filter: brightness(0.8) contrast(1.2); 
+        }
 
-        .project-content { flex: 1.2; }
+        .project-content { flex: 1.2; display: flex; flex-direction: column; justify-content: center; }
 
+        /* ================= FEATURES UI FIX ================= */
+        .features-container {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(110, 243, 255, 0.05);
+            border-left: 3px solid #6ef3ff;
+            border-radius: 4px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item:last-child { margin-bottom: 0; }
+
+        .feature-icon {
+            flex-shrink: 0; /* FIX: Prevents icon from shrinking or jumping lines */
+            font-size: 1rem;
+        }
+
+        .feature-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-text-group strong {
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            color: #6ef3ff;
+            letter-spacing: 1px;
+        }
+
+        .feature-text-group p {
+            margin: 2px 0 0 0 !important;
+            font-size: 0.75rem !important;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* ================= TECH TAGS & BUTTONS ================= */
         .tech-tags {
             font-family: 'Orbitron';
             font-size: 0.7rem;
@@ -128,7 +178,6 @@
             border: 1px solid rgba(110, 243, 255, 0.2);
         }
 
-        /* ================= BUTTONS ================= */
         .btn {
             display: inline-block;
             padding: 10px 25px;
@@ -157,9 +206,11 @@
 
         footer { text-align: center; padding-bottom: 4rem; }
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
             .project-row { flex-direction: column !important; text-align: center; }
+            .project-image { min-height: 250px; }
             .typed-out { font-size: 1.8rem; }
+            .feature-item { text-align: left; }
         }
     </style>
 </head>
@@ -177,7 +228,7 @@
 </nav>
 
 <section class="banner">
-    <div class="typed-out">BACKEND ARCHITECTURE</div>
+    <div class="typed-out">BACKEND PROJECTS</div>
     <p style="font-family: 'Orbitron'; font-size: 0.9rem; color: #6ef3ff; margin-top: 1rem;">
         Synchronizing distributed systems & data persistence layers...
     </p>
@@ -187,22 +238,49 @@
 
     <section class="project-row">
         <div class="project-image">
-            <img src="images/backend-placeholder.jpg" alt="Inventory System">
+            <img src="images/patient-management-system.jpg" alt="Patient Management System">
         </div>
         <div class="project-content">
-            <h3>Inventory Management System</h3>
-            <p>A production-style backend system for managing enterprise resources with role-based access control (RBAC) and high-security authentication.</p>
+            <h3>Patient Management System</h3>
+            <p>
+                A production-style backend system enabling patients to manage OPD bookings, lab tests, and medical equipment procurement. It centralizes patient needs, streamlining tracking and expenditures.
+            </p>
+
+            <div class="features-container">
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <div class="feature-text-group">
+                        <strong>Secured Routes</strong>
+                        <p>Stateless JWT Authentication protocols</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <div class="feature-text-group">
+                        <strong>API Gateway</strong>
+                        <p>Centralized entry point for service routing</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🏗️</span>
+                    <div class="feature-text-group">
+                        <strong>Clean Architecture</strong>
+                        <p>Strict Controller-Service-Repository pattern</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="tech-tags">
                 <span class="tag">SPRING BOOT 3</span>
                 <span class="tag">JWT AUTH</span>
                 <span class="tag">POSTGRESQL</span>
                 <span class="tag">REST API</span>
+                <span class="tag">gRPC</span>
+                <span class="tag">KAFKA</span>
             </div>
-            <p style="font-size: 0.9rem; opacity: 0.8;">
-                Built using layered architecture, centralized exception handling, and robust validation pipelines to ensure data integrity.
-            </p>
+
             <div class="actions">
-                <a href="https://github.com/Vimu-Sama/Vimarsh_Sharma_Inventory-System" class="btn">ACCESS REPO</a>
+                <a href="https://github.com/Vimu-Sama/Patient-Management-System" class="btn">ACCESS REPO</a>
             </div>
         </div>
     </section>
@@ -214,39 +292,32 @@
         <div class="project-content">
             <h3>Event-Driven Order Pipeline</h3>
             <p>Decoupled microservices architecture using message brokers for asynchronous high-volume order processing.</p>
+            
+            <div class="features-container">
+                <div class="feature-item">
+                    <span class="feature-icon">📡</span>
+                    <div class="feature-text-group">
+                        <strong>Asynchronous Processing</strong>
+                        <p>Non-blocking order fulfillment via Kafka</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📦</span>
+                    <div class="feature-text-group">
+                        <strong>Service Orchestration</strong>
+                        <p>Fault-tolerant microservices design</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="tech-tags">
                 <span class="tag">APACHE KAFKA</span>
                 <span class="tag">MICROSERVICES</span>
                 <span class="tag">DOCKER</span>
                 <span class="tag">JAVA</span>
             </div>
-            <p style="font-size: 0.9rem; opacity: 0.8;">
-                Demonstrates event sourcing and service orchestration, allowing for massive scalability and fault tolerance in commerce environments.
-            </p>
             <div class="actions">
                 <a href="#" class="btn">VIEW ARCHITECTURE</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="project-row">
-        <div class="project-image">
-            <img src="images/backend-placeholder.jpg" alt="gRPC Service">
-        </div>
-        <div class="project-content">
-            <h3>Low-Latency gRPC Service</h3>
-            <p>High-performance inter-service communication layer optimized for speed and binary serialization.</p>
-            <div class="tech-tags">
-                <span class="tag">gRPC</span>
-                <span class="tag">PROTOBUF</span>
-                <span class="tag">JAVA 21</span>
-                <span class="tag">CONCURRENCY</span>
-            </div>
-            <p style="font-size: 0.9rem; opacity: 0.8;">
-                Utilizing Protocol Buffers to reduce payload size and Virtual Threads (Project Loom) to handle massive concurrent requests.
-            </p>
-            <div class="actions">
-                <a href="#" class="btn">VIEW BENCHMARKS</a>
             </div>
         </div>
     </section>

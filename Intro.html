@@ -18,6 +18,17 @@
             overflow-x: hidden;
         }
 
+        /* Entrance Animations */
+        @keyframes pageReveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
         h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
             color: #6ef3ff;
@@ -42,6 +53,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+            animation: pageReveal 0.5s ease-out forwards;
         }
 
         .nav-links a {
@@ -52,14 +64,17 @@
             font-family: 'Orbitron';
         }
 
-        /* ================= HERO SECTION ================= */
+        /* ================= HERO SECTION & GLITCH ================= */
         .banner {
             padding: 8rem 2rem 4rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(2, 11, 19, 0.85), rgba(2, 11, 19, 0.85)), url('images/server-architecture.jpg');
+            background: linear-gradient(rgba(2, 11, 19, 0.85), rgba(2, 11, 19, 0.85)), url('images/server-architecture.gif');
             background-size: cover;
             background-position: center;
             border-bottom: 1px solid rgba(110, 243, 255, 0.1);
+            animation: pageReveal 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
         }
 
         .profile-frame {
@@ -75,17 +90,11 @@
             display: block;
         }
 
-        .profile-frame::before {
-            content: 'BIOMETRIC ID: VERIFIED';
-            position: absolute;
-            bottom: -15px;
-            right: -10px;
-            background: #6ef3ff;
-            color: #020b13;
-            font-family: 'Orbitron';
-            font-size: 10px;
-            padding: 2px 8px;
-            font-weight: bold;
+        /* Update this class in your CSS */
+        .typed-container {
+            position: relative;
+            display: block;  /* Changed from inline-block to block to force it below the image */
+            width: 100%;     /* Ensures it takes the full width for centering */
         }
 
         .typed-out {
@@ -93,19 +102,65 @@
             white-space: nowrap;
             margin: 0 auto;
             animation: typing 2.5s steps(30, end) forwards;
+            animation-delay: 0.8s;
             font-size: 2.5rem;
             width: 0;
             color: #6ef3ff;
             text-shadow: 0 0 20px rgba(110, 243, 255, 0.5);
+            font-family: 'Orbitron';
+            position: relative;
+        }
+
+        /* Glitch Layers */
+        .typed-out::before,
+        .typed-out::after {
+            content: "SUBJECT: VIMARSH SHARMA";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* Hidden until typing starts */
+            animation-delay: 0.8s;
+        }
+
+        .typed-out::before {
+            color: #ff00c1;
+            z-index: -1;
+            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite, 
+                       layerReveal 0.1s forwards;
+            animation-delay: 3.3s; /* Starts after typing finishes */
+        }
+
+        .typed-out::after {
+            color: #00fff9;
+            z-index: -2;
+            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite,
+                       layerReveal 0.1s forwards;
+            animation-delay: 3.3s;
         }
 
         @keyframes typing { from { width: 0 } to { width: 100% } }
+        
+        @keyframes layerReveal { to { opacity: 0.7; } }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 2px); }
+            40% { transform: translate(-3px, -2px); }
+            60% { transform: translate(3px, 2px); }
+            80% { transform: translate(3px, -2px); }
+            100% { transform: translate(0); }
+        }
 
         /* ================= CONTENT AREA ================= */
         .main-content {
             max-width: 900px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            animation: pageReveal 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
         }
 
         .info-card {
@@ -117,18 +172,28 @@
             overflow: hidden;
         }
 
+        .info-card::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(110, 243, 255, 0.5);
+            box-shadow: 0 0 10px #6ef3ff;
+            animation: scanline 2s linear forwards;
+            animation-delay: 1.5s;
+        }
+
         .info-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
             background: #6ef3ff;
             box-shadow: 0 0 15px #6ef3ff;
         }
 
-        /* ================= BUTTONS ================= */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -148,7 +213,14 @@
             box-shadow: 0 0 25px #6ef3ff;
         }
 
-        footer { text-align: center; padding: 4rem 2rem; background: rgba(2, 11, 19, 0.5); }
+        footer { 
+            text-align: center; 
+            padding: 4rem 2rem; 
+            background: rgba(2, 11, 19, 0.5); 
+            animation: pageReveal 1s ease-out forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
 
         @media (max-width: 800px) {
             .typed-out { font-size: 1.5rem; }
@@ -173,7 +245,9 @@
         <div class="profile-frame">
             <img src="images/JobProfilePic.jpeg" width="200" height="260" alt="Vimarsh Sharma" />
         </div>
-        <div class="typed-out">SUBJECT: VIMARSH SHARMA</div>
+        <div class="typed-container">
+            <div class="typed-out">SUBJECT: VIMARSH SHARMA</div>
+        </div>
         <h4 style="margin-top: 1rem; opacity: 0.8;">Backend Systems Engineer • Java Specialist</h4>
     </section>
 
@@ -226,5 +300,4 @@
     </footer>
 
 </body>
-
 </html>
