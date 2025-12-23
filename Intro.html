@@ -1,148 +1,230 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
+
 <head>
-    <title>Portfolio - Vimarsh Sharma | Backend Developer</title>
+    <title>About Me | Vimarsh Sharma</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= GLOBAL THEME ================= */
+        body {
+            background: radial-gradient(circle at top, #041c2c, #020b13);
+            color: #d6f6ff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: #6ef3ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p { line-height: 1.8; color: #b0d4de; margin-bottom: 1.5rem; }
+        strong { color: #6ef3ff; font-weight: 600; }
+        a { color: #6ef3ff; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        a:hover { border-bottom: 1px solid #6ef3ff; }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(4, 28, 44, 0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+        }
+
+        .nav-links a {
+            color: #6ef3ff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron';
+        }
+
+        /* ================= HERO SECTION ================= */
+        .banner {
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(2, 11, 19, 0.85), rgba(2, 11, 19, 0.85)), url('images/server-architecture.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(110, 243, 255, 0.1);
+        }
+
+        .profile-frame {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .profile-frame img {
+            border: 3px solid #6ef3ff;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(110, 243, 255, 0.3);
+            display: block;
+        }
+
+        .profile-frame::before {
+            content: 'BIOMETRIC ID: VERIFIED';
+            position: absolute;
+            bottom: -15px;
+            right: -10px;
+            background: #6ef3ff;
+            color: #020b13;
+            font-family: 'Orbitron';
+            font-size: 10px;
+            padding: 2px 8px;
+            font-weight: bold;
+        }
+
+        .typed-out {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 2.5s steps(30, end) forwards;
+            font-size: 2.5rem;
+            width: 0;
+            color: #6ef3ff;
+            text-shadow: 0 0 20px rgba(110, 243, 255, 0.5);
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+
+        /* ================= CONTENT AREA ================= */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .info-card {
+            background: rgba(110, 243, 255, 0.03);
+            border: 1px solid rgba(110, 243, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #6ef3ff;
+            box-shadow: 0 0 15px #6ef3ff;
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid #6ef3ff;
+            color: #6ef3ff;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 2rem;
+        }
+
+        .btn:hover {
+            background: #6ef3ff;
+            color: #020b13;
+            box-shadow: 0 0 25px #6ef3ff;
+        }
+
+        footer { text-align: center; padding: 4rem 2rem; background: rgba(2, 11, 19, 0.5); }
+
+        @media (max-width: 800px) {
+            .typed-out { font-size: 1.5rem; }
+            .info-card { padding: 1.5rem; }
+        }
+    </style>
 </head>
 
-<body class="is-preload">
+<body>
 
-<div id="wrapper">
-
-    <!-- Header -->
-    <header id="header" class="alt style2">
-        <a href="index.html" class="logo">
-            <strong>Portfolio</strong> <span>by Vimarsh Sharma</span>
-        </a>
-        <nav>
-            <a href="#menu">Menu</a>
-        </nav>
-    </header>
-
-    <!-- Menu -->
-    <nav id="menu">
-        <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Intro.html">About Me</a></li>
-        </ul>
+    <nav>
+        <div style="font-family: 'Orbitron'; font-weight: bold; color: #6ef3ff;">VIMARSH SHARMA</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="Intro.html">ABOUT</a>
+            <a href="BackendProjects.html">BACKEND</a>
+            <a href="GameProjects.html">GAMES</a>
+        </div>
     </nav>
 
-    <!-- Banner -->
-    <section id="banner" class="style0">
-        <div class="inner">
-            <span class="image">
-                <img src="images/server-architecture.jpg" alt="" />
-            </span>
-            <header class="major">
-                <h1>
-                    Backend Developer
-                    <img src="images/JobProfilePic.jpeg" width="260" height="340"
-                         align="right" style="border:5px solid #ffffff" />
-                </h1>
-                <h2 align="right">Java • Spring Boot • Distributed Systems</h2>
-                <h4 align="right">
-                    Scalable APIs • Secure Systems • Microservices
-                </h4>
-            </header>
+    <section class="banner">
+        <div class="profile-frame">
+            <img src="images/JobProfilePic.jpeg" width="200" height="260" alt="Vimarsh Sharma" />
         </div>
+        <div class="typed-out">SUBJECT: VIMARSH SHARMA</div>
+        <h4 style="margin-top: 1rem; opacity: 0.8;">Backend Systems Engineer • Java Specialist</h4>
     </section>
 
-    <!-- Main -->
-    <div id="main">
+    <div class="main-content">
+        <div class="info-card">
+            <h3>System Profile</h3>
+            <p>
+                I am a Computer Science Engineering graduate from 
+                <a href="https://www.jiit.ac.in/about-jiit">Jaypee Institute of Information Technology, Noida (2022)</a>. 
+                Currently, I operate as a <strong>Backend Developer</strong>, engineered for designing and building 
+                <strong>secure, scalable, and production-ready backend systems</strong>.
+            </p>
 
-        <!-- About -->
-        <section id="one">
-            <div class="inner">
-                <p>
-                    I am a Computer Science Engineering graduate from
-                    <a href="https://www.jiit.ac.in/about-jiit">Jaypee Institute of Information Technology, Noida (2022)</a>.
-                    I currently work as a <strong>Backend Developer</strong>, focusing on designing and building
-                    <strong>secure, scalable, and production-ready backend systems</strong>.
-                </p>
+            <p>
+                My primary expertise lies in the Java ecosystem, where I deploy <strong>Spring Boot</strong> 
+                to architect RESTful APIs, implement robust authentication, and structure 
+                applications following <strong>Domain-Driven Design (DDD)</strong> principles.
+            </p>
 
-                <p>
-                    My primary expertise lies in the Java ecosystem, where I work extensively with
-                    <strong>Spring Boot</strong> to build RESTful APIs, implement authentication and authorization,
-                    and structure applications following clean architecture and domain-driven principles.
-                </p>
+            <p>
+                Data persistence is handled via <strong>PostgreSQL</strong> and <strong>Spring Data JPA</strong>, 
+                with performance optimizations implemented through <strong>Redis</strong> caching layers.
+            </p>
 
-                <p>
-                    I have hands-on experience working with relational databases like
-                    <strong>PostgreSQL</strong>, using <strong>Spring Data JPA</strong> for persistence,
-                    and optimizing performance through caching mechanisms such as <strong>Redis</strong>.
-                </p>
+            <p>
+                In the realm of distributed systems, I implement <strong>Microservices</strong> architectures 
+                utilizing <strong>JWT</strong> for stateless security, <strong>Kafka</strong> for event-driven 
+                logic, and <strong>gRPC</strong> for high-efficiency inter-service communication.
+            </p>
 
-                <p>
-                    I actively work on <strong>microservices-based architectures</strong>, implementing
-                    service-to-service communication, API gateways, and stateless authentication using
-                    <strong>JWT</strong>. I also have experience with <strong>Kafka</strong> for event-driven
-                    systems and <strong>gRPC</strong> for efficient inter-service communication.
-                </p>
+            <h3 style="margin-top: 3rem;">Operational Objectives</h3>
+            <p>
+                Seeking backend-focused roles to master distributed systems, API performance, 
+                and large-scale architecture.
+            </p>
 
-                <p>
-                    My focus as an engineer is on writing clean, maintainable code, understanding system design
-                    trade-offs, and building backend systems that can scale reliably in real-world production
-                    environments.
-                </p>
-            </div>
-        </section>
-
-        <!-- Closing -->
-        <section id="three">
-            <div class="inner">
-                <header class="major">
-                    <h2>What I’m Looking For</h2>
-                </header>
-                <p>
-                    I am interested in backend-focused roles where I can work on
-                    distributed systems, API design, and performance-critical services,
-                    while continuously improving my understanding of large-scale system design.
-                </p>
-                <ul class="actions">
-                    <li><a href="index.html" class="button next">Back to Home</a></li>
-                </ul>
-            </div>
-        </section>
-
+            <a href="index.html" class="btn">RETURN TO HOME</a>
+        </div>
     </div>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="inner">
-            <section>
-                <span class="icon solid alt fa-envelope"></span>
-                <h3>Email</h3>
-                <a href="mailto:vimarshsharmabsr2000@gmail.com">
-                    vimarshsharmabsr2000@gmail.com
-                </a>
-            </section>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="inner">
-            <ul class="icons" style="text-align:center">
-                <li><a href="https://github.com/Vimu-Sama" class="icon brands alt fa-github"></a></li>
-                <li><a href="https://www.linkedin.com/in/vimarsh-sharma-1334a517a/"
-                       class="icon brands alt fa-linkedin-in"></a></li>
-            </ul>
+    <footer>
+        <h3>Contact Terminal</h3>
+        <p style="font-family: 'Orbitron'; font-size: 0.8rem;">
+            <a href="mailto:vimarshsharmabsr2000@gmail.com">VIMARSHSHARMABSR2000@GMAIL.COM</a>
+        </p>
+        <div style="margin-top: 2rem;">
+            <a href="https://github.com/Vimu-Sama" style="margin: 0 15px;">GITHUB</a>
+            <a href="https://www.linkedin.com/in/vimarsh-sharma-1334a517a/" style="margin: 0 15px;">LINKEDIN</a>
         </div>
     </footer>
 
-</div>
-
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-
 </body>
+
 </html>

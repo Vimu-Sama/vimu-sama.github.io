@@ -1,380 +1,288 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
-	<title>My Projects</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
+    <title>My Projects | Vimarsh Sharma</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= GLOBAL THEME ================= */
+        body {
+            background: radial-gradient(circle at top, #041c2c, #020b13);
+            color: #d6f6ff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #6ef3ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p { line-height: 1.6; color: #b0d4de; }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(4, 28, 44, 0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+        }
+
+        .nav-links a {
+            color: #6ef3ff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron';
+        }
+
+        /* ================= HERO SECTION ================= */
+        .banner {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(2, 11, 19, 0.8), rgba(2, 11, 19, 0.8)), url('images/viper.gif');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(110, 243, 255, 0.1);
+        }
+
+        .typed-out {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 2.5s steps(20, end) forwards;
+            font-size: 3rem;
+            width: 0;
+            color: #6ef3ff;
+            text-shadow: 0 0 20px rgba(110, 243, 255, 0.5);
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+
+        /* ================= PROJECT SPOTLIGHTS ================= */
+        .spotlight-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .project-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 6rem;
+            background: rgba(110, 243, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(110, 243, 255, 0.1);
+            transition: 0.4s;
+        }
+
+        .project-row:hover {
+            border: 1px solid rgba(110, 243, 255, 0.4);
+            box-shadow: 0 0 30px rgba(110, 243, 255, 0.05);
+        }
+
+        .project-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .project-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #6ef3ff;
+            box-shadow: 0 0 15px rgba(110, 243, 255, 0.2);
+        }
+
+        .project-image img { width: 100%; display: block; filter: grayscale(20%) contrast(1.1); }
+
+        .project-content { flex: 1.2; }
+
+        .tech-tags {
+            font-family: 'Orbitron';
+            font-size: 0.75rem;
+            color: #6ef3ff;
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(110, 243, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid #6ef3ff;
+            color: #6ef3ff;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-right: 10px;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #6ef3ff;
+            color: #020b13;
+            box-shadow: 0 0 20px #6ef3ff;
+        }
+
+        /* ================= FOOTER ================= */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #6ef3ff, transparent);
+            margin: 4rem 0;
+        }
+
+        footer { text-align: center; padding-bottom: 4rem; }
+
+        @media (max-width: 800px) {
+            .project-row { flex-direction: column !important; text-align: center; }
+            .typed-out { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 
-<body class="is-preload">
+<body>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
-		<header id="header" class="alt style2">
-			<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Vimarsh Sharma</span></a>
-			<nav>
-				<a href="#menu">Menu</a>
-			</nav>
-		</header>
+    <nav>
+        <div style="font-family: 'Orbitron'; font-weight: bold; color: #6ef3ff;">VIMARSH SHARMA</div>
+        <div class="nav-links">
+			<a href="index.html">HOME</a>
+			<a href="Intro.html">ABOUT</a>
+			<a href="BackendProjects.html">BACKEND</a>
+			<a href="GameProjects.html">GAMES</a>
+    	</div>
+    </nav>
 
-		<!-- Menu -->
-		<nav id="menu">
-			<ul class="links">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="Intro.html">About Me</a></li>
-				<li><a href="GameProjects.html">Game Projects</a></li>
-			</ul>
-			<ul class="actions stacked">
-				<li><a href="#" class="button primary fit">Get Started</a></li>
-			</ul>
-		</nav>
+    <section class="banner">
+        <div class="typed-out">PROTOTYPE REGISTRY</div>
+        <p style="font-family: 'Orbitron'; font-size: 0.9rem; color: #6ef3ff; margin-top: 1rem;">
+            Accessing encrypted game development archives...
+        </p>
+    </section>
 
-		<!-- Banner -->
-		<!-- Note: The "styleN" class below should match that of the header element. -->
-		<section id="banner" class="style0">
-			<div class="inner">
-				<span class="image">
-					<img src="images/viper.gif">
-				</span>
-				<header class="major">
-					<h1>My Projects</h1>
-				</header>
-			</div>
-		</section>
+    <div class="spotlight-container">
 
-		<!-- Main -->
-		<div id="main">
+        <section class="project-row">
+            <div class="project-image">
+                <a href="https://sharemygame.com/@Vimu/space-wars">
+                    <img src="images/SpaceWars.JPG" alt="Space Wars">
+                </a>
+            </div>
+            <div class="project-content">
+                <h3>Space Wars</h3>
+                <p>"Shoot through waves of enemies, the ending is nowhere in sight Captain!!" Defend against fleet formations in this arcade shooter.</p>
+                <div class="tech-tags">
+                    <span class="tag">SCRIPTABLE OBJECTS</span>
+                    <span class="tag">ENEMY TRAILS</span>
+                    <span class="tag">CAMERA SHAKE</span>
+                </div>
+                <div class="actions">
+                    <a href="https://sharemygame.com/@Vimu/space-wars" class="btn">INITIALIZE PLAY</a>
+                    <a href="https://github.com/Vimu-Sama/Space_War" class="btn">VIEW SOURCE</a>
+                </div>
+            </div>
+        </section>
 
-			<!-- One -->
-			<section id="one">
-				<div class="inner">
-					<div class="content">
-						<p>
+        <section class="project-row">
+            <div class="project-image">
+                <a href="https://vimu.itch.io/snakes">
+                    <img src="images/SnakeGame.JPG" alt="Snakes">
+                </a>
+            </div>
+            <div class="project-content">
+                <h3>Snakes!</h3>
+                <p>The classic 2000s experience rebuilt with a modern zing. Features local co-op and dynamic power-ups.</p>
+                <div class="tech-tags">
+                    <span class="tag">LOCAL CO-OP</span>
+                    <span class="tag">POWER-UPS</span>
+                    <span class="tag">GAME LOOPS</span>
+                </div>
+                <div class="actions">
+                    <a href="https://vimu.itch.io/snakes" class="btn">INITIALIZE PLAY</a>
+                    <a href="https://github.com/Vimu-Sama/Snake-Game" class="btn">VIEW SOURCE</a>
+                </div>
+            </div>
+        </section>
 
-						</p>
-					</div>
-				</div>
-			</section>
+        <section class="project-row">
+            <div class="project-image">
+                <a href="https://sharemygame.com/@Vimu/projectile-rush">
+                    <img src="images/ProjectleRush.JPG" alt="Projectile Rush">
+                </a>
+            </div>
+            <div class="project-content">
+                <h3>Projectile Rush</h3>
+                <p>A 3D hypercasual game utilizing physics and mathematical trajectories to score higher through timed movements.</p>
+                <div class="tech-tags">
+                    <span class="tag">3D MATHS</span>
+                    <span class="tag">LINE RENDERER</span>
+                    <span class="tag">NAMESPACES</span>
+                    <span class="tag">OBJECT POOLING</span>
+                </div>
+                <div class="actions">
+                    <a href="https://sharemygame.com/@Vimu/projectile-rush" class="btn">INITIALIZE PLAY</a>
+                    <a href="https://github.com/Vimu-Sama/ProjectileJump" class="btn">VIEW SOURCE</a>
+                </div>
+            </div>
+        </section>
 
-			<!-- Two -->
-			<section id="two" class="spotlights">
-				<section>
-					<a href="https://sharemygame.com/@Vimu/space-wars" class="image">
-						<img src="images/SpaceWars.JPG" alt="" data-position="center center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Space Wars</h2>
-							</header>
-							<p>"Shoot through waves of enemies, the ending is nowhere in sight and so is your bravery
-								Captain!!". Fight through waves of enemies,
-								while defending yourself from the enemies' ships, which come in a fleet.</p>
-							<p>Project Summary-</p>
-							<ul>
-								<li>Used Scriptable Objects for storing info about various enemies</li>
-								<li>Worked with definitive Enemy Trail for the first time</li>
-								<li>Used prefabs to make different enemies</li>
-								<li>Made Camera shake effect whenever player is hit/destroyed</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="https://sharemygame.com/@Vimu/space-wars" class="button">Play</a></li>
-								<li><a href="https://github.com/Vimu-Sama/Space_War" class="button">Learn More</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="https://vimu.itch.io/snakes" class="image">
-						<img src="images/SnakeGame.JPG" alt="" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Snakes!</h2>
-							</header>
-							<p>Who doesn't know the classic snake game which was so prevalent in India, and on every
-								device around 2000s.
-								I have tried to build the same experience but with a zing of modern twist.
-							</p>
-							<p>
-								Some details about the project-
-							</p>
-							<ul>
-								<li>This is the upgraded version of the childhood snake game.</li>
-								<li>This game is a full-fledged local co-op experience with lots of fun.</li>
-								<li>Implemented power-ups like speed boost, score boost and shield.</li>
-								<li>Implemented the entire game loop along with the scoring system and win/lose
-									condition.</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="https://vimu.itch.io/snakes" class="button">Play</a></li>
-								<li><a href="https://github.com/Vimu-Sama/Snake-Game" class="button">Learn more</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="https://play.google.com/store/apps/details?id=com.Lone_SouL.ThinkBeforeTap" class="image">
-						<img src="images/ThinkBeforeTap.JPG" alt="" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Think Before You Tap</h2>
-							</header>
-							<p>A game where you destroy to complete tasks. But beware! senseless destroying will lead to
-								losing stars.
-								Thus, a counter-part of Brain It On! where you destroy to get the gears going instead of
-								making.
-							</p>
-							<p>Some details about the project</p>
-							<ul>
-								<li>The project is my own original idea along with assets and game design.</li>
-								<li>This is a simple one-tap puzzle game where you destroy objects to complete levels.
-								</li>
-								<li>Implemented level unlock system with cool level design.</li>
-								<li>Published on the play store along with proper screenshots and game documents</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="https://play.google.com/store/apps/details?id=com.Lone_SouL.ThinkBeforeTap"
-										class="button">Play</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="https://github.com/Vimu-Sama/MerchantDilemma" class="image">
-						<img src="images/MerhcantDilemma.JPG" alt="" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Merchant Dilemma</h2>
-							</header>
-							<p>
-								What if the Merchant who was intended to make many profits, gets a limit(curse) placed
-								for his greed on him?
-								He can carry only a single package throughout the game, but if he is lucky he might
-								unlock one
-								more spot with your help!! Come along! on a Merchant's adventure where dilemma is rising
-								.
-							</p>
-							<p>Some details about the project</p>
-							<p>Highlights- MVC Design Pattern, Observer Pattern, Singleton Pattern</p>
-							<ul>
-								<li>The project is my own original idea, made as a internal OutScal GameJam project.
-								</li>
-								<li>It is a 2-D RPG,where merchant finds a way to cure his curse.</li>
-								<li>Implemented Generic Singleton</li>
-								<li>Implemented MVC design pattern for the merchant.</li>
-								<li>The Merchant is instantiated in scene, so as to avoid load on commit.</li>
-								<li>Implemented Observer Pattern, to trigger various functions for the events</li>
-							</ul>
-							<ul class="actions">
-								<li><a href=# class="button">Play</a></li>
-								<li><a href="https://github.com/Vimu-Sama/MerchantDilemma" class="button">Learn More</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href=# class="image">
-						<img src="images/CastleEscape.JPG" alt="" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Castle Escape</h2>
-							</header>
-							<p>
-								2-D RPG, fast-paced action game, where you try to escape the castle facility while
-								dodging
-								threatening traps, and killing enemies beyond comprehension.
-							</p>
-							<p>Some details about the project</p>
-							<p>Highlights- Singleton, TileMaps</p>
-							<ul>
-								<li>Implemented and greatly used TileMaps</li>
-								<li>Used LayerMask overlay for enemy patrol</li>
-								<li>Made Enemies, which patrol on the level.</li>
-								<li>Implemented Singleton.</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button">Play</a></li>
-								<li><a href="https://github.com/Vimu-Sama/Castle-Escape" class="button">Learn More</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href=https://sharemygame.com/@Vimu/projectile-rush class="image">
-						<img src="images/ProjectleRush.JPG" alt="" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h2>Projectile Rush</h2>
-							</header>
-							<p>
-								An easy going hypercasual game, where an auto-generated projectile moves to and fro from you.
-								Time it right and you will be able to score higher everytime.
-							</p>
-							<p>Some details about the project</p>
-							<p>Highlights- Singleton, Reusable GameObjects,3-D, Physics , 3-D Maths</p>
-							<ul>
-								<li>Worked with Line Renderer for the first time</li>
-								<li>Implemented the projectile path through game maths and physics</li>
-								<li>The game is Hypercasual</li>
-								<li>Implemented Singleton</li>
-								<li>Platforms are resuable</li>
-								<li>Implemented Namespaces for better modularity of the code.</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="https://sharemygame.com/@Vimu/projectile-rush" class="button">Play</a></li>
-								<li><a href="https://github.com/Vimu-Sama/ProjectileJump" class="button">Learn More</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<!-- <section>
-									<a href=# class="image">
-										<img src="images/pic04.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h2>Think Before You Tap</h2>
-											</header>
-											<p>A game where you destroy to complete tasks. But beware! senseless destroying will lead to losing stars.
-												Thus, a counter-part of Brain It On! where you destroy to get the gears going instead of making.
-											</p>
-											<p>Some details about the project</p>
-											<ul>
-												<li>The project is my own original idea along with assets and game design.</li>
-												<li>This is a simple one-tap puzzle game where you destroy objects to complete levels.</li>
-												<li>Implemented level unlock system with cool level design.</li>
-												<li>Published on the play store along with proper screenshots and game documents</li>
-											</ul>
-											<ul class="actions">
-												<li><a href="https://play.google.com/store/apps/details?id=com.Lone_SouL.ThinkBeforeTap" class="button">Play</a></li>
-											</ul>
-										</div>
-									</div>
-								</section> -->
-			</section>
+        <section class="project-row">
+            <div class="project-image">
+                <a href="https://github.com/Vimu-Sama/MerchantDilemma">
+                    <img src="images/MerhcantDilemma.JPG" alt="Merchant Dilemma">
+                </a>
+            </div>
+            <div class="project-content">
+                <h3>Merchant Dilemma</h3>
+                <p>A 2D RPG focused on design pattern architecture. Solve a merchant's curse using clean code principles.</p>
+                <div class="tech-tags">
+                    <span class="tag">MVC PATTERN</span>
+                    <span class="tag">OBSERVER PATTERN</span>
+                    <span class="tag">GENERIC SINGLETON</span>
+                </div>
+                <div class="actions">
+                    <a href="https://github.com/Vimu-Sama/MerchantDilemma" class="btn">VIEW ARCHITECTURE</a>
+                </div>
+            </div>
+        </section>
 
-			<!-- Three -->
-			<section id="three">
-				<div class="inner">
-					<header class="major">
-						<h2>End Note</h2>
-					</header>
-					<p>I hope you liked the platter I presented you with! And this is not the end, many more projects
-						are on the way!!</p>
-					<ul class="actions">
-						<li><a href="index.html" class="button next">Get Back</a></li>
-					</ul>
-				</div>
-			</section>
+    </div>
 
-		</div>
+    <div class="divider"></div>
 
-		<!-- Contact -->
-		<section id="contact">
-			<div class="inner">
-				<!-- 	
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section> -->
-
-				<section class="split">
-					<section>
-						<div class="contact-method=">
-							<span class="icon solid alt fa-envelope"></span>
-							<h3>Email</h3>
-							<a href="mailto:vimarshsharmabsr2000@gmail.com">vimarshsharmabsr2000@gmail.com</a>
-						</div>
-					</section>
-				</section>
-			</div>
-		</section>
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons" style="text-align: center">
-					<li><a href="https://github.com/Vimu-Sama" class="icon brands alt fa-github"><span
-								class="label">GitHub</span></a></li>
-					<li><a href="https://www.linkedin.com/in/vimarsh-sharma-1334a517a/"
-							class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-				</ul>
-			</div>
-		</footer>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+    <footer>
+        <div class="inner">
+            <h3>End Note</h3>
+            <p>I hope you liked the platter I presented! Many more prototypes are currently being compiled.</p>
+            <a href="index.html" class="btn">RETURN TO HOME</a>
+            <div style="margin-top: 3rem;">
+                <a href="https://github.com/Vimu-Sama" style="color: #6ef3ff;">GitHub</a> | 
+                <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a" style="color: #6ef3ff;">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 

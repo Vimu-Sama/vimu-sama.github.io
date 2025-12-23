@@ -1,230 +1,277 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
-	<title>Vimarsh Sharma</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
+    <title>Vimarsh Sharma | Backend Engineer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: radial-gradient(circle at top, #041c2c, #020b13);
+            color: #d6f6ff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #6ef3ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        a {
+            color: #6ef3ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #6ef3ff;
+        }
+
+        nav {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(4, 28, 44, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(110, 243, 255, 0.2);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hero {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .typed-out {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(30, end) forwards;
+            font-size: 2.5rem;
+            width: 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        .blink {
+            animation: blink-anim 1s infinite;
+        }
+
+        @keyframes blink-anim {
+            0%, 100% { opacity: 1 }
+            50% { opacity: 0 }
+        }
+
+        .card-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .player-card {
+            width: 300px;
+            height: 400px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .player-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            backface-visibility: hidden;
+            padding: 2rem;
+            box-sizing: border-box;
+            box-shadow: 0 0 30px rgba(110, 243, 255, 0.15);
+            border: 1px solid rgba(110, 243, 255, 0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #06283d, #02141f);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, #120a2a, #060014);
+            transform: rotateY(180deg);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tech-tags {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #6ef3ff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .updates {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2.5rem;
+            border: 1px solid rgba(110, 243, 255, 0.2);
+            background: rgba(110, 243, 255, 0.03);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #6ef3ff, transparent);
+            margin: 4rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(110, 243, 255, 0.1);
+        }
+    </style>
 </head>
-<style>
-	body {
-		background: #003153;
-		background-size: cover;
-		font-family: 'Trebuchet MS', sans-serif;
-	}
 
-	.container {
-		display: inline-block;
-	}
+<body>
 
-	.typed-out {
-		overflow: hidden;
-		/* border-right: .15em solid orange; */
-		white-space: nowrap;
-		animation: typing 3s steps(20, end) forwards;
-		font-size: 2rem;
-		width: 0;
-	}
+<nav>
+    <div style="font-family: 'Orbitron'; font-weight: bold;">HELLO WORLD</div>
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="Intro.html">ABOUT</a>
+        <a href="BackendProjects.html">BACKEND</a>
+        <a href="GameProjects.html">GAMES</a>
+    </div>
+</nav>
 
-	@keyframes typing {
-		from {
-			width: 0
-		}
+<section class="hero">
+    <div class="typed-out">Hi, this is Vimarsh Sharma<span class="blink">.</span></div>
+    <p style="margin-top:1.5rem; color:#9efaff; font-family: 'Orbitron'; font-size: 1.1rem;">
+        BACKEND ENGINEER • DISTRIBUTED SYSTEMS • GAME & SIMULATION DEV
+    </p>
+</section>
 
-		to {
-			width: 100%
-		}
-	}
+<div class="divider"></div>
 
-	.blink {
-		display: inline;
-		animation: blink 1s infinite;
-		animation-delay: 3s;
-	}
+<section class="card-section">
+    <h2>PORTFOLIO MODULES</h2>
+    <p style="color:#7adfff;">Hover to inspect • Click to navigate</p>
 
-	@keyframes blink {
-		0% {
-			opacity: 100;
-		}
+    <div class="card-grid">
 
-		50% {
-			opacity: 0;
-		}
+        <!-- ABOUT -->
+        <div class="player-card" onclick="location.href='Intro.html'">
+            <div class="card-inner">
+                <div class="card-face card-front">
+                    <h3>ABOUT ME</h3>
+                    <p>Engineering Journey</p>
+                </div>
+                <div class="card-face card-back">
+                    <strong>Multi-domain Engineer</strong>
+                    <p>Backend-focused engineer with experience in simulations, real-time systems, and VR-based projects.</p>
+                    <div class="tech-tags">JAVA • SYSTEM DESIGN • REAL-TIME</div>
+                </div>
+            </div>
+        </div>
 
-		100% {
-			opacity: 100;
-		}
-	}
-</style>
+        <!-- BACKEND PROJECTS -->
+        <div class="player-card" onclick="location.href='BackendProjects.html'">
+            <div class="card-inner">
+                <div class="card-face card-front">
+                    <h3>BACKEND PROJECTS</h3>
+                    <p>Scalable Systems</p>
+                </div>
+                <div class="card-face card-back">
+                    <strong>Production-style Backends</strong>
+                    <p>Auth systems, microservices, async messaging, caching, and API design.</p>
+                    <div class="tech-tags">SPRING • JWT • KAFKA • REDIS</div>
+                </div>
+            </div>
+        </div>
 
-<body class="is-preload">
+        <!-- GAME PROJECTS -->
+        <div class="player-card" onclick="location.href='GameProjects.html'">
+            <div class="card-inner">
+                <div class="card-face card-front">
+                    <h3>GAME PROJECTS</h3>
+                    <p>Interactive Systems</p>
+                </div>
+                <div class="card-face card-back">
+                    <strong>Games & Simulations</strong>
+                    <p>VR training simulators, gameplay systems, physics-driven interactions, and engine-level logic.</p>
+                    <div class="tech-tags">UNITY • C# • VR • SIMULATION</div>
+                </div>
+            </div>
+        </div>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+    </div>
+</section>
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<a href="index.html" class="logo"><strong>HELLO WORLD!!</strong>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-		</header>
+<section class="updates">
+    <h3>Current Focus</h3>
+    <p>
+        Designing <strong>robust backend systems</strong> while leveraging game-engine experience
+        to think in terms of performance, concurrency, and real-time constraints.
+    </p>
+    <div style="margin-top:1rem; font-family:'Orbitron'; font-size:0.8rem; color:#6ef3ff;">
+        TARGETING BACKEND ENGINEER ROLES
+    </div>
+</section>
 
-		<!-- Menu -->
-		<nav id="menu">
-			<ul class="links">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="Intro.html">About Me</a></li>
-				<li><a href="GameProjects.html">Game Projects</a></li>
-			</ul>
-			<ul class="actions stacked">
-				<li><a href="#" class="button primary fit">Get Started</a></li>
-			</ul>
-		</nav>
+<div class="divider"></div>
 
-		<!-- Banner -->
-		<section id="banner" class="major">
-			<div class="inner">
-				<header class="major">
-					<div class="container">
-						<div class="typed-out">Hi, this is Vimarsh Sharma..<div class="blink">.</div>
-						</div>
-					</div>
-				</header>
-				<div class="content">
-					<p>GAMEPLAY PROGRAMMER<br />
-					<ul class="actions">
-						<li><a href="#one" class="button next scrolly">Get Started</a></li>
-					</ul>
-				</div>
-			</div>
-		</section>
+<footer>
+    <h3>Connect</h3>
+    <a href="mailto:vimarshsharmabsr2000@gmail.com">Email</a> |
+    <a href="https://github.com/Vimu-Sama">GitHub</a> |
+    <a href="https://linkedin.com/in/vimarsh-sharma-1334a517a">LinkedIn</a>
 
-		<!-- Main -->
-		<div id="main">
-
-			<!-- One -->
-			<section id="one" class="tiles">
-				<article>
-					<span class="image">
-						<img src="images/pic01.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h3><a href="Intro.html" class="link">INTRO</a></h3>
-						<p>Know more about me!</p>
-					</header>
-				</article>
-				<article>
-					<span class="image">
-						<img src="images/pic02.jpg" alt="" />
-					</span>
-					<header class="major">
-						<h3><a href="GameProjects.html" class="link">GAME PROJECTS</a></h3>
-						<p>Game Projects mostly based on Code or projects where my role was of a Programmer</p>
-					</header>
-				</article>
-				<!-- 
-								<article>
-									<span class="image">
-										<img src="images/GameDesign.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="GameDesign.html" class="link">GAME DESIGNING</a></h3>
-										<p>Some GDDs of already published games, give it read, I am yearning to join as one</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/Writer.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="GameWriting.html" class="link">WRITING</a></h3>
-										<p>Some projects where I practised writing for games and my own side hobby of writing short stories, novels, etc.</p>
-									</header>
-								</article> -->
-
-			</section>
-
-			<!-- Two -->
-			<section id="two">
-				<div class="inner">
-					<header class="major">
-						<h2>What Am I Upto?</h2>
-					</header>
-					<p>Currently I am upskilling my Game Mathematics and Physics. I am also working on making a simple
-						3-D game,
-						utilising difference design patterns. It is a kind of showcase project. Thus, STAY TUNED!!!
-					</p>
-					<!-- <ul class="actions">
-										<li><a href="landing.html" class="button next">Go Up</a></li>
-									</ul> -->
-				</div>
-			</section>
-
-		</div>
-
-		<!-- Contact Section -->
-		<section id="contact">
-			<div class="inner">
-				<!-- <section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section> -->
-				<section class="split">
-					<section>
-						<div class="contact-method=">
-							<span class="icon solid alt fa-envelope"></span>
-							<h3>Email</h3>
-							<a href="mailto:vimarshsharmabsr2000@gmail.com">vimarshsharmabsr2000@gmail.com</a>
-						</div>
-					</section>
-				</section>
-			</div>
-		</section>
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<ul class="icons" style="text-align: center">
-					<li><a href="https://github.com/Vimu-Sama" class="icon brands alt fa-github"><span
-								class="label">GitHub</span></a></li>
-					<li><a href="https://www.linkedin.com/in/vimarsh-sharma-1334a517a/"
-							class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-				</ul>
-			</div>
-		</footer>
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+    <p style="margin-top:2rem; font-size:0.7rem; color:#7adfff;">
+        DESIGNED & ENGINEERED BY VIMARSH SHARMA © 2025
+    </p>
+</footer>
 
 </body>
-
 </html>
