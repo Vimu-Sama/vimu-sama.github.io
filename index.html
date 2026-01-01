@@ -9,9 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================================
-           GLOBAL CYBER THEME VARIABLES
-        ========================================================= */
+        /* [Styles remain the same as your provided code] */
         :root {
             --bg-main: #020b13;
             --bg-accent: #041c2c;
@@ -20,14 +18,7 @@
             --text-main: #d6f6ff;
         }
 
-        /* =========================================================
-           RESET & BASE
-        ========================================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: radial-gradient(circle at top, var(--bg-accent), var(--bg-main));
@@ -36,9 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* =========================================================
-           CYBER GRID BACKGROUND
-        ========================================================= */
         .cyber-grid {
             position: fixed;
             inset: 0;
@@ -95,9 +83,6 @@
             z-index: 999;
         }
 
-        /* =========================================================
-           NAVBAR (Tighter)
-        ========================================================= */
         nav {
             padding: 1rem 2rem;
             display: flex;
@@ -127,11 +112,22 @@
             text-decoration: none;
         }
 
-        /* =========================================================
-           HERO SECTION (Reduced Spacing)
-        ========================================================= */
+        /* Resume Highlight Style */
+        .resume-btn {
+            border: 1px solid var(--neon);
+            padding: 5px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .resume-btn:hover {
+            background: var(--neon);
+            color: var(--bg-main) !important;
+            box-shadow: 0 0 15px var(--neon);
+        }
+
         .hero {
-            padding: 3rem 2rem 1.5rem; /* Reduced from 8rem */
+            padding: 3rem 2rem 1.5rem;
             text-align: center;
         }
 
@@ -154,11 +150,8 @@
         .blink { animation: blink 1s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* =========================================================
-           CARD SYSTEM (With Images & Border Animation)
-        ========================================================= */
         .card-section {
-            padding: 1rem 2rem 3rem; /* Tighter top padding */
+            padding: 1rem 2rem 3rem;
             text-align: center;
         }
 
@@ -178,7 +171,6 @@
             position: relative;
         }
 
-        /* Animated Glowing Border Background */
         .player-card::before {
             content: '';
             position: absolute;
@@ -213,19 +205,18 @@
             inset: 0;
             border-radius: 20px;
             backface-visibility: hidden;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid rgba(110, 243, 255, 0.3);
             overflow: hidden;
             background: rgba(2, 20, 31, 0.95);
         }
 
-        /* Translucent Image Layer */
         .card-bg-img {
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.15; /* Subtly translucent */
+            opacity: 0.15;
             filter: grayscale(1);
             transition: 0.5s;
             z-index: 0;
@@ -259,14 +250,11 @@
         .tech-tags {
             margin-top: 1rem;
             font-family: 'Orbitron';
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--neon);
             letter-spacing: 1px;
         }
 
-        /* =========================================================
-           DIVIDER & FOOTER
-        ========================================================= */
         .divider {
             height: 1px;
             background: linear-gradient(to right, transparent, var(--neon), transparent);
@@ -307,12 +295,13 @@
     <div class="scanlines"></div>
 
     <nav>
-        <div class="glitch-wrapper">HELLO WORLD</div>
+        <div class="glitch-wrapper">VIMARSH_SHARMA</div>
         <div class="nav-links">
             <a href="index.html">HOME</a>
             <a href="Intro.html">ABOUT</a>
             <a href="BackendProjects.html">BACKEND</a>
             <a href="GameProjects.html">GAMES</a>
+            <a href="images/Vimarsh_Resume_f.pdf" download class="resume-btn">RESUME</a>
         </div>
     </nav>
 
@@ -339,9 +328,13 @@
                         </div>
                     </div>
                     <div class="card-face card-back">
-                        <strong style="color: var(--neon);">Backend-First Engineer</strong>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">Scalable systems focused on Java and high-performance architecture.</p>
-                        <div class="tech-tags">JAVA • SYSTEM DESIGN • CONCURRENCY</div>
+                        <strong style="color: var(--neon);">Experience Profile</strong>
+                        <p style="font-size: 0.75rem; margin-top: 8px;">
+                            • AntCreatives (BE-II) [cite: 17]<br>
+                            • AutoVRse (SDE-II) [cite: 22]<br>
+                            • CUSMAT (Unity XR) [cite: 25]
+                        </p>
+                        <div class="tech-tags">JAVA • RUST • C# • SYSTEM DESIGN</div>
                     </div>
                 </div>
             </div>
@@ -352,13 +345,15 @@
                         <div class="card-bg-img" style="background-image: url('images/backend-index.gif');"></div>
                         <div class="card-content">
                             <h3>BACKEND PROJECTS</h3>
-                            <p style="font-size: 0.8rem; opacity: 0.8;"></p>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">Distributed Systems</p>
                         </div>
                     </div>
                     <div class="card-face card-back">
-                        <strong style="color: var(--neon);">Distributed Core</strong>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">Microservices, auth gateways, gRPC for Microservices interaction and async messaging systems using KAFKA</p>
-                        <div class="tech-tags">SPRING • KAFKA • REDIS • JWT</div>
+                        <strong style="color: var(--neon);">Microservices & Scaling</strong>
+                        <p style="font-size: 0.75rem; margin-top: 8px;">
+                            Spring Boot + gRPC [cite: 30], Kafka Messaging [cite: 12], and Rust (Rocket/Axum) microservices[cite: 18]. Improved read latency by ~40%[cite: 20].
+                        </p>
+                        <div class="tech-tags">SPRING • KAFKA • REDIS • RUST</div>
                     </div>
                 </div>
             </div>
@@ -373,9 +368,11 @@
                         </div>
                     </div>
                     <div class="card-face card-back">
-                        <strong style="color: var(--neon);">Simulation Arch</strong>
-                        <p style="font-size: 0.85rem; margin-top: 8px;">VR interaction, physics systems, and real-time C# architecture.</p>
-                        <div class="tech-tags">UNITY • C# • VR • PHYSICS</div>
+                        <strong style="color: var(--neon);">XR Simulations</strong>
+                        <p style="font-size: 0.75rem; margin-top: 8px;">
+                            Built 4 full XR training simulations end-to-end[cite: 26]. Developed reusable gameplay frameworks and integrated hardware SDKs[cite: 23, 27].
+                        </p>
+                        <div class="tech-tags">UNITY • C# • XR • HARDWARE SDK</div>
                     </div>
                 </div>
             </div>
@@ -384,13 +381,13 @@
     </section>
 
     <section class="updates">
-        <h3>Current Focus</h3>
+        <h3>Core Skills</h3>
         <p style="margin-top: 10px; font-size: 0.95rem; line-height: 1.6;">
-            Designing <strong>robust, scalable backend systems</strong> with an emphasis on
-            performance, reliability, and real-world production constraints.
+            <strong>Languages:</strong> Java, Rust, SQL, C# <br>
+            <strong>Backend:</strong> Spring Boot, Kafka, gRPC, Docker, AWS
         </p>
         <div style="margin-top:1rem; font-family:Orbitron; font-size:0.7rem; color:var(--neon);">
-            TARGETING BACKEND ENGINEER ROLES
+            CLEAN ARCHITECTURE • DISTRIBUTED OBSERVABILITY
         </div>
     </section>
 
